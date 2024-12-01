@@ -14,6 +14,10 @@ class Config:
             self.configured = False
             print(f"config {config_file} doesn't exist, copying template!")
             shutil.copyfile(template_file, config_file)
+            if os.path.isfile(config_file):
+                print(f"Successfully copied template to {config_file}")
+            else:
+                print(f"Failed to copy template to {config_file}")
         else:
             self.configured = True
         return config_file
