@@ -6,7 +6,7 @@ services:
     command: python -u run
     restart: always
     volumes:
-      - ./_docker/polymath:/polymath/polymath/storage
+      - /data/polymath:/polymath/polymath/storage
 
   nginx:
     image: valian/docker-nginx-auto-ssl
@@ -15,10 +15,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ssl_data:/etc/resty-auto-ssl
+      - /data/ssl_data:/etc/resty-auto-ssl
     environment:
-      ALLOWED_DOMAINS: 'atlas.oraxen.com'
-      SITES: 'atlas.oraxen.com=polymath:8080'
+      ALLOWED_DOMAINS: 'atlas.lukehemmin.com'
+      SITES: 'atlas.lukehemmin.com=polymath:8080'
       FORCE_HTTPS: "false"
 
 volumes:
