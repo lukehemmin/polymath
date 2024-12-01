@@ -5,13 +5,14 @@ import toml
 
 
 class Config:
-
     def extract(self, file_name, template_name):
         config_file = utils.get_path(file_name)
         if not os.path.isfile(config_file):
             self.configured = False
             print(f"config {file_name} doesn't exist, copying template!")
             shutil.copyfile(utils.get_path(template_name), config_file)
+        else:
+            self.configured = True
         return config_file
 
 
