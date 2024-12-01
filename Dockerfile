@@ -9,6 +9,5 @@ WORKDIR /polymath
 COPY --from=builder /polymath .
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8080
-VOLUME /polymath/data
 ENV PYTHONUNBUFFERED "1"
 CMD ["python", "-u", "run"]
